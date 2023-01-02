@@ -1,0 +1,9 @@
+body {
+    margin: 1rem;
+    color: blue;
+}
+
+.title {
+    font-size: 2rem;
+    color: blueviolet;
+}
