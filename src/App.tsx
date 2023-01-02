@@ -2,6 +2,6 @@ import React from 'react';
 
 export const App = () => {
     return (
-        <h1 className='title'>Hello React fast refresh</h1>
+        <h1 className='title'>TV TEST</h1>
     )
 }
