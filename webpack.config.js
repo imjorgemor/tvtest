@@ -1,21 +1,20 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const webpack = require("webpack");
 const path = require('path')
 
 module.exports = {
     mode: "development",
-    entry: './src/Index.tsx',
+    entry: path.resolve(__dirname, "./src/Index.tsx"),
     output: {
         path: path.resolve(__dirname, './public'),
         filename: 'bundle.js',
         publicPath: '/',
     },
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     devServer: {
         port: "3000",
         historyApiFallback: true,
-        hot: true,
-        static: {
-            directory: path.resolve(__dirname, './public')
-        }
+        static: path.resolve(__dirname, './public')
     },
     module: {
         rules: [
