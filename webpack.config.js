@@ -6,10 +6,13 @@ module.exports = {
     entry: './src/Index.tsx',
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/',
     },
     devServer: {
         port: "3000",
+        historyApiFallback: true,
+        hot: true,
         static: {
             directory: path.resolve(__dirname, './public')
         }
@@ -49,6 +52,7 @@ module.exports = {
               },
         ],
     },
+    ignoreWarnings: [/Devtools failed to parse source map/],
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js'],
     }

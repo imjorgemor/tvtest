@@ -1,7 +1,4 @@
 import React from 'react';
+import {AppRouter} from './router/AppRouter';
 
-export const App = () => {
-    return (
-        <h1 className='title'>TV TEST</h1>
-    )
-}
+export const App = () => (<AppRouter />)
