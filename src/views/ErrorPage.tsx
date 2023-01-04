@@ -1,8 +1,14 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
 
+type Error = {
+    statusText: string,
+    message: string
+}
+
 export const ErrorPage = () => {
-    const error: any = useRouteError();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const error: Error | any = useRouteError();
     console.error(error);
 
     return (

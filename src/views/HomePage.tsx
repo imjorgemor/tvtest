@@ -1,11 +1,12 @@
 import React from 'react';
-
-
+import { Highlight } from '../components/organism';
 
 export const HomePage = () => {
-    
+
     return (
-        <div>HomePage</div>
+        <>
+            <Highlight />
+        </>
     );
 };
 
