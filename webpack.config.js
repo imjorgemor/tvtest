@@ -1,6 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require("webpack");
-const path = require('path')
+const path = require('path');
 
 module.exports = {
     mode: "development",
@@ -9,9 +9,12 @@ module.exports = {
         path: path.resolve(__dirname, './public'),
         filename: 'bundle.js',
         publicPath: '/',
+        sourceMapFilename: "[name].js.map"
     },
+    devtool: "source-map",
     plugins: [new webpack.HotModuleReplacementPlugin()],
     devServer: {
+        host: 'localhost.rakuten.tv',
         port: "3000",
         historyApiFallback: true,
         static: path.resolve(__dirname, './public')
@@ -51,8 +54,8 @@ module.exports = {
               },
         ],
     },
-    ignoreWarnings: [/Devtools failed to parse source map/],
+    ignoreWarnings: [/"Devtools failed to parse source map"/],
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js'],
     }
-}
+};

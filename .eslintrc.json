@@ -4,23 +4,7 @@
         "plugin:@typescript-eslint/recommended",
         "react-app"
     ],
-    "overrides": [
-        {
-            "files": [
-                "*.ts",
-                "*.tsx"
-            ],
-            "rules": {
-                "@typescript-eslint/no-shadow": [
-                    "error"
-                ],
-                "no-shadow": "off",
-                "no-undef": "off",
-                "react/react-in-jsx-scope": "off",
-                "semi": [
-                    "never"
-                ]
-            }
-        }
-    ]
+    "rules": {
+        "semi": [2, "always"]
+    }
 }
