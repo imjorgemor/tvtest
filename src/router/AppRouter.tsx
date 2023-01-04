@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from './Root';
 import { ErrorPage, HomePage, DetailPage } from '../views';
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -20,6 +21,6 @@ const router = createBrowserRouter([
             }
         ]
     }
-])
+]);
 
-export const AppRouter = () => (<RouterProvider router={router} />)
+export const AppRouter = () => (<RouterProvider router={router} />);

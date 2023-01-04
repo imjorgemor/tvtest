@@ -7,5 +7,5 @@ export const Root = () => {
             <div>main Layout of tv test</div>
             <Outlet />
         </>
-    )
-}
+    );
+};
