@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Highlight, MovieSlider } from '../components/organism';
+import { listService } from '../repository/services/listService';
 
 export const HomePage = () => {
 
+    
     return (
         <>
             <Highlight />
