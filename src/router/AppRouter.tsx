@@ -1,26 +1,19 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import { Root } from './Root';
 import { ErrorPage, HomePage, DetailPage } from '../views';
 
+export const AppRouter = () => {
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path='/' element={<Root />} errorElement={<ErrorPage />}>
+                <Route index element={<HomePage />} />
+                <Route path="/movies" element={<DetailPage />} />
+            </Route>
+        )
+    );
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Root />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: "/",
-                element: <HomePage />
-
-            },
-            {
-                path: "movies",
-                element: <DetailPage />
-            }
-        ]
-    }
-]);
-
-export const AppRouter = () => (<RouterProvider router={router} />);
+    return (
+        <RouterProvider router={router} />
+    );
+};

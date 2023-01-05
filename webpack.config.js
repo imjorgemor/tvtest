@@ -1,23 +1,26 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const webpack = require("webpack");
 const path = require('path');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
     mode: "development",
-    entry: path.resolve(__dirname, "./src/Index.tsx"),
+    entry: path.resolve(__dirname, "./src/index.tsx"),
     output: {
-        path: path.resolve(__dirname, './public'),
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, './dist'),
+        filename: 'index_bundle.js',
         publicPath: '/',
         sourceMapFilename: "[name].js.map"
     },
-    devtool: "source-map",
-    plugins: [new webpack.HotModuleReplacementPlugin()],
+    devtool: 'inline-source-map',
+    plugins: [new ReactRefreshWebpackPlugin()].filter(Boolean),
     devServer: {
         host: 'localhost.rakuten.tv',
         port: "3000",
         historyApiFallback: true,
-        static: path.resolve(__dirname, './public')
+        static: path.resolve(__dirname, './dist'),
+        open: true,
+        hot: true,
+        liveReload: true
     },
     module: {
         rules: [
@@ -44,14 +47,13 @@ module.exports = {
                 ],
             },
             {
-                test: /\.svg$/,
-                use: "file-loader",
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                loader: "url-loader",
-                options: { limit: false },
-              },
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     ignoreWarnings: [/"Devtools failed to parse source map"/],

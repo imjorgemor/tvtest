@@ -1,11 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import {Navbar} from '../components/organism';
 
 export const Root = () => {
+
     return (
-        <>
-            <div>main Layout of tv test</div>
+        <main>
+            <Navbar />
             <Outlet />
-        </>
+        </main>
     );
 };
