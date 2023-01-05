@@ -1,0 +1,13 @@
+.list-wrapper {
+    position: relative;
+    overflow-x: visible;
+
+    .list-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        transform: translateX(0px);
+        transition: all 1s ease;
+    }
+}

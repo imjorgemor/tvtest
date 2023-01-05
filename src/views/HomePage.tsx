@@ -1,11 +1,14 @@
 import React from 'react';
-import { Highlight } from '../components/organism';
+import { Highlight, MovieSlider } from '../components/organism';
 
 export const HomePage = () => {
 
     return (
         <>
             <Highlight />
+            <div className='home-container'>
+                <MovieSlider />
+            </div>
         </>
     );
 };

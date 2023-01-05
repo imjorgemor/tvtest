@@ -1,5 +1,4 @@
 import React from 'react';
-import { lazy } from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import { Root } from './Root';
 import { ErrorPage, HomePage, DetailPage } from '../views';
@@ -14,5 +13,7 @@ export const AppRouter = () => {
         )
     );
 
-    return (<RouterProvider router={router} />);
+    return (
+        <RouterProvider router={router} />
+    );
 };

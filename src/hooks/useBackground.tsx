@@ -4,7 +4,7 @@ export const useBackground = (scrollTrigger: number) => {
     const [background, setBackground] = useState(false);
 
     const handleScroll = () => {
-        const scrollPosition = window.scrollY; // => scroll position
+        const scrollPosition = window.scrollY; // => get scrollY position
         if (scrollPosition > scrollTrigger) {
             setBackground(true);
         } else {
@@ -18,6 +18,7 @@ export const useBackground = (scrollTrigger: number) => {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {background};
