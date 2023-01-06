@@ -1,23 +1,9 @@
-export const filmSections = [
-    {
-        name: "gratis-la-mejor-seleccion-de-peliculas"
-    },
-    {
-        name:"tienda-las-peliculas-del-momento"
-    },
-    {
-        name: "gratis-christmas"
-    },
-    {
-        name: "gratis-peliculas-de-accion"
-    },
-    {
-        name: "gratis-peliculas-de-suspense"
-    },
-    {
-        name: "gratis-peliculas-de-drama"
-    },
-    {
-        name:"gratis-peliculas-familiares"
-    }
-];
+export const filmSections = {
+    bestSelection: "gratis-la-mejor-seleccion-de-peliculas",
+    trending: "tienda-las-peliculas-del-momento",
+    christmas: "gratis-christmas",
+    action: "gratis-peliculas-de-accion",
+    suspense: "gratis-peliculas-de-suspense",
+    drama: "gratis-peliculas-de-drama",
+    family: "gratis-peliculas-familiares"
+};
