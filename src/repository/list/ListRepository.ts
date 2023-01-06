@@ -1,14 +1,15 @@
 import { ListModel } from "../../models/list/ListModel";
 import { appFetch } from "../fetch";
 import { BASE_URL } from "../endpoints";
+import { Meta } from "../../definitions";
 
-interface ListCategoryDTO {
+export interface ListCategoryDTO {
     data: ListModel
 }
 
-interface ListCategoryResponse {
+export interface ListCategoryResponse {
     data: ListModel | null;
-    meta: "SUCCESS" | "ERROR" | any
+    meta: Meta | any
 }
 
 export default class ListRepository {
@@ -24,12 +25,12 @@ export default class ListRepository {
         if (response.status === 200) {
             listResponseData = {
                 data: data.data,
-                meta: 'SUCCESS'
+                meta: Meta.SUCCESS
             };
         } else {
             listResponseData = {
                 data: null,
-                meta: 'ERROR'
+                meta: Meta.ERROR
             };
 
         }
