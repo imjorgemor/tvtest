@@ -1,0 +1,28 @@
+.card-skeleton {
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    background-color: var(--color-neutral-400);
+}
+
+.movie-highlight-skeleton {
+    width: 100%;
+    background-color: var(--color-neutral-400);
+    height: 35vh;
+}
+
+@media (min-width: 800px) {
+    .movie-highlight-skeleton {
+        border-top-right-radius: var(--radius-medium);
+        border-top-left-radius: var(--radius-medium);
+        height: 55vh;
+    }
+}
+
+@media (min-width: 1000px) {
+    .movie-highlight-skeleton {
+        height: 75vh;
+    }
+}

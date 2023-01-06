@@ -12,13 +12,13 @@ export interface Props {
 }
 
 export const MovieSlider = ({ section }: Props) => {
-    const { state: filmsByCategory, response } = useFetch<ListModel>(() => listService().getByCategory(section));
+    const { showSlider, observeRef } = useInfiniteScroll();
+    const { state: filmsByCategory, response } = useFetch<ListModel>(() => listService().getByCategory(section),showSlider);
     const totalFilms = filmsByCategory?.contents.data.length;
-
+    
     const {handleClickLeft, handleClickRight, sliderRef, slideNumber, totalSlides} = useSlider(totalFilms? totalFilms : numberFilmsPerSection);
 
-    const { showSlider, observeRef } = useInfiniteScroll();
-
+    //do not show MovieList when a category endpoint gives an error
     if (response === Meta.ERROR) return <></>;
 
     return (

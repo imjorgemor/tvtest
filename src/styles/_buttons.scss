@@ -1,0 +1,19 @@
+.app-button  {
+    border: none;
+    outline: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.15s ease-in-out 0s;
+    min-height: 48px;
+    min-width: 120px;
+    padding: 0px 24px;
+    background: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+    width: 100%;
+    font-weight: 900;
+}

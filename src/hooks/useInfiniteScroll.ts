@@ -18,8 +18,7 @@ export const useInfiniteScroll = () => {
                 }, 1000);
             }
         };
-
-        const observer = new IntersectionObserver(onChange, { rootMargin: "5px" });
+        const observer = new IntersectionObserver(onChange, { rootMargin: "50px" });
         observeRef.current && observer.observe(observeRef.current);
         return () => observer.disconnect();
     }, []);

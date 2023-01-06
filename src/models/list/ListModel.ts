@@ -1,27 +1,26 @@
+import { ImageModel } from "../images";
+
 export interface ListModel {
-    category: string,
-    content_type: string,
-    id: string,
-    name: string,
+    category: string;
+    content_type: string;
+    id: string;
+    name: string;
     contents: {
-        data: ListItemModel[],
-        meta: MetaListModel
+        data: ListItemModel[];
+        meta: MetaListModel;
     }
 }
 
 export interface ListItemModel {
-    id: string,
-    title: string,
-    images: {
-        artwork: string,
-        snapshot: string
-    }
+    id: string;
+    title: string;
+    images: ImageModel
 }
 
 export interface MetaListModel {
     pagination: {
-        count: number,
-        per_page: number,
-        total_pages: number
+        count: number;
+        per_page: number;
+        total_pages: number;
     }
 }

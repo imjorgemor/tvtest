@@ -1,23 +1,38 @@
+import { Meta } from "../../definitions";
+import { MovieModel } from "../../models/movie/MovieModel";
 import { appFetch } from "../fetch";
+import { BASE_URL } from "../endpoints";
 
-//const BASE_URL = "https://gizmo.rakuten.tv/v3/";
-const BASE_URL = "https://gizmo.rakuten.tv/v3/movies/matrix?classification_id=5&device_identifier=web&locale=es&market_code=es";
+export interface MovieDTO {
+    data: MovieModel;
+}
 
-interface MovieDTO {
-    name: string
+export interface MovieResponse {
+    data: MovieModel | null;
+    meta: Meta | any;
 }
 
 export default class MovieRepository {
+    async getByMovieTitle(movie: string): Promise<MovieResponse> {
+        const response = await appFetch<MovieDTO>(`${BASE_URL}/movies/${movie}?classification_id=5&device_identifier=web&locale=es&market_code=es`);
+        const data = await response.json();
 
-    async getByCategory(movie?: string): Promise<MovieDTO> {
-        let data: MovieDTO | "ERROR";
-        try {
-            const response = await appFetch<MovieDTO>(BASE_URL);
-            data = await response.json();
+        let listResponseData: MovieResponse = {
+            data: null,
+            meta: ""
+        };
 
-        } catch {
-            data = "ERROR";
+        if (response.status === 200) {
+            listResponseData = {
+                data: data.data,
+                meta: Meta.SUCCESS
+            };
+        } else {
+            listResponseData = {
+                data: null,
+                meta: Meta.ERROR
+            };
         }
-        return data as MovieDTO;
+        return listResponseData;
     }
 }
