@@ -7,3 +7,5 @@ export const filmSections = {
     drama: "gratis-peliculas-de-drama",
     family: "gratis-peliculas-familiares"
 };
+
+export const numberFilmsPerSection = 18;

@@ -8,7 +8,7 @@ export const AppRouter = () => {
         createRoutesFromElements(
             <Route path='/' element={<Root />} errorElement={<ErrorPage />}>
                 <Route index element={<HomePage />} />
-                <Route path="/movies" element={<DetailPage />} />
+                <Route path="/movies/:id" element={<DetailPage />} />
             </Route>
         )
     );

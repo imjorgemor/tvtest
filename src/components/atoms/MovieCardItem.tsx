@@ -9,7 +9,7 @@ interface Props {
 export const MovieCardItem = ({ filmTitle = "", artwork= "" }: Props) => {
     return (
         <div className='card-item'>
-            <Link to="/">
+            <Link to={`/movies/${filmTitle}`}>
                 <div className='card-container'>
                     <div className='card-skeleton'>
                         { 

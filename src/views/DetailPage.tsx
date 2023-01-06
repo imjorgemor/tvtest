@@ -2,7 +2,7 @@ import React from 'react';
 
 export const DetailPage = () => {
   return (
-    <div>DetailPage</div>
+    <div style={{marginTop: "100px"}}>DetailPage</div>
   );
 };
 
