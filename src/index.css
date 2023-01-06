@@ -14,6 +14,7 @@
     --color-neutral-100: #f0f0f0;
     --color-neutral-200: #c6c5c5;
     --color-neutral-300: #848585;
+    --color-neutral-400: #333333;
     --color-yellow: #f5c518;
     /* Root styles */
     --radius-medium: 1rem;
@@ -82,7 +83,7 @@ h5 {
 @media (min-width: 1100px) {
     body {
         font-size: var(--font-desktop-home-title-md-size);
-    font-weight: var(--font-desktop-home-title-md-weight);
-    line-height: var(--font-desktop-home-title-md-height);
+        font-weight: var(--font-desktop-home-title-md-weight);
+        line-height: var(--font-desktop-home-title-md-height);
     }
 }

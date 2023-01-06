@@ -1,23 +1,43 @@
-.list-item {
+.card-item {
     padding: 0px 2px;
     min-width: 33.33%;
 }
 
-@media (min-width: 450px) {
-    .list-item {
-        min-width: 25%;
-    }
-}
+// @media (min-width: 450px) {
+//     .card-item {
+//         min-width: 25%;
+//     }
+// }
+// media query removed as 25%(4) is not module of 18 (films displayed in the slider)
 
 @media (min-width: 800px) {
-    .list-item {
+    .card-item {
         min-width: 16.66666%;
     }
 }
 
 @media (min-width: 1100px) {
-    .list-item {
+    .card-item {
         min-width: 14.2857%;
         z-index: auto;
     }
+}
+
+.card-container {
+    position: relative;
+    transition: transform ease 180ms;
+    padding: 69.8738% 0px;
+
+    &:hover {
+        transform: translate(0, -3px);
+    }
+}
+
+.card-skeleton {
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    background-color: var(--color-neutral-400);
 }

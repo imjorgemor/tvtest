@@ -1,16 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
-    filmTitle: string
-    artwork: string
+    filmTitle?: string
+    artwork?: string
 }
 
-export const MovieCardItem = ({filmTitle, artwork}: Props) => {
+export const MovieCardItem = ({ filmTitle = "", artwork= "" }: Props) => {
     return (
-        <div className='list-item'>
-            <div>
-                <img src={artwork} alt={filmTitle} />
-            </div>
+        <div className='card-item'>
+            <Link to="/">
+                <div className='card-container'>
+                    <div className='card-skeleton'>
+                        { 
+                            artwork.length
+                                ? <img src={artwork} alt={filmTitle} />
+                                : null
+                        }
+                    </div>
+                </div>
+            </Link>
         </div>
     );
 };

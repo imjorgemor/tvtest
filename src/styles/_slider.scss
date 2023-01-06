@@ -1,6 +1,7 @@
 .list-wrapper {
     position: relative;
     overflow-x: visible;
+  
 
     .list-container {
         position: relative;
@@ -9,5 +10,77 @@
         width: 100%;
         transform: translateX(0px);
         transition: all 1s ease;
+    }
+}
+
+.list-arrow--left {
+    position: absolute;
+}
+
+.list-arrow {
+    position: absolute;
+    height: 100%;
+    width: 24px;
+    top: 0px;
+    
+    z-index: 1;
+    cursor: pointer;
+    transition: opacity 400ms;
+    opacity: .9;
+
+    svg {
+        fill: var(--color-neutral-100);
+    }
+}
+
+.list-arrow--right{
+    left: 100%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--color-black) 90%
+    );
+    &:hover {
+        opacity: 1;
+        background: linear-gradient(
+            to right,
+            transparent -10%,
+            var(--color-black) 90%
+        );
+    }
+}
+
+.list-arrow--left{
+    right: 100%;
+    background: linear-gradient(
+        to left,
+        transparent 0%,
+        var(--color-black) 90%
+    );
+    &:hover {
+        opacity: 1;
+        background: linear-gradient(
+            to left,
+            transparent -10%,
+            var(--color-black) 90%
+        );
+    }
+}
+
+@media (min-width: 450px) {
+    .list-arrow {
+        width: 24px;
+    }
+}
+
+@media (min-width: 800px) {
+    .list-arrow {
+        width: 40px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .list-arrow {
+        width: 64px;
     }
 }
