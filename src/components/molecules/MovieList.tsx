@@ -13,6 +13,7 @@ const MovieList = ({ movieList }: Props) => {
                 movieList.map((film: ListItemModel) => (
                     <MovieCardItem
                         key={film.id}
+                        id={film.id}
                         filmTitle={film.title}
                         artwork={film.images.artwork}
                     />

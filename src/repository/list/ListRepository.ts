@@ -4,12 +4,12 @@ import { BASE_URL } from "../endpoints";
 import { Meta } from "../../definitions";
 
 export interface ListCategoryDTO {
-    data: ListModel
+    data: ListModel;
 }
 
 export interface ListCategoryResponse {
     data: ListModel | null;
-    meta: Meta | any
+    meta: Meta | any;
 }
 
 export default class ListRepository {
@@ -32,7 +32,6 @@ export default class ListRepository {
                 data: null,
                 meta: Meta.ERROR
             };
-
         }
         return listResponseData;
     }

@@ -1,23 +1,19 @@
 import React from 'react';
 import { Highlight, MovieSlider } from '../components/organism';
 import { filmSections } from '../definitions';
-
+import { MainTemplate } from '../components/templates';
 
 export const HomePage = () => {
-
-
     return (
         <>
             <Highlight />
-            <div className='home-container'>
-                <MovieSlider section={filmSections.bestSelection}/>
-                <MovieSlider section={filmSections.trending}/>
-                <MovieSlider section={filmSections.christmas}/>
-                <MovieSlider section={filmSections.action}/>
-                <MovieSlider section={filmSections.suspense}/>
-                <MovieSlider section={filmSections.drama}/>
-                <MovieSlider section={filmSections.family}/>
-            </div>
+            <MainTemplate>
+                {
+                    Object.entries(filmSections).map(([id, section]) =>
+                        <MovieSlider key={id} section={section} />
+                    )
+                }
+            </MainTemplate>
         </>
     );
 };

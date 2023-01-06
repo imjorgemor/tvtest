@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface Props {
-    filmTitle?: string
-    artwork?: string
+    filmTitle: string
+    artwork: string
+    id: string
 }
 
-export const MovieCardItem = ({ filmTitle = "", artwork= "" }: Props) => {
+export const MovieCardItem = ({ filmTitle = "", artwork= "", id="" }: Props) => {
     return (
         <div className='card-item'>
-            <Link to={`/movies/${filmTitle}`}>
+            <Link to={`/movies/${id}`}>
                 <div className='card-container'>
                     <div className='card-skeleton'>
                         { 

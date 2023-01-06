@@ -1,13 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import {Navbar} from '../components/organism';
+import { Navbar } from '../components/organism';
+import ScrollTopRouter from './ScrollTopRouter';
 
 export const Root = () => {
 
     return (
-        <main>
-            <Navbar />
-            <Outlet />
-        </main>
+        <>
+            <ScrollTopRouter>
+                <Navbar />
+                <Outlet />
+            </ScrollTopRouter>
+        </>
     );
 };

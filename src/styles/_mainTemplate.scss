@@ -1,0 +1,23 @@
+.main-layout{
+    padding:  0 16px;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@media (min-width: 450px) {
+    .main-layout {
+        padding: 0 24px;
+    }
+}
+
+@media (min-width: 800px) {
+    .main-layout {
+        padding: 0 24px 40px 40px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .main-layout{
+        padding: 12px 64px;
+    }
+}

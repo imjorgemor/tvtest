@@ -1,0 +1,21 @@
+.movie-layout{
+    padding: 56px 0;  
+}
+
+@media (min-width: 450px) {
+    .movie-layout {
+        padding: 56px 24px;
+    }
+}
+
+@media (min-width: 800px) {
+    .movie-layout {
+        padding: 56px 40px ;
+    }
+}
+
+@media (min-width: 1100px) {
+    .movie-layout{
+        padding:100px 64px;
+    }
+}
