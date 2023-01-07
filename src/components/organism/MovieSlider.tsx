@@ -1,10 +1,12 @@
-import React, { Suspense, lazy} from 'react';
+import React, { Suspense, lazy, useEffect} from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { ArrowLeft, ArrowRight } from '../../assets/icons';
 import { listService } from '../../repository/services/listService';
 import { ListModel} from '../../models/list/ListModel';
 import { useFetch, useSlider, useInfiniteScroll } from '../../hooks';
 import { Meta, numberFilmsPerSection } from '../../definitions';
 import { MovieListSkeleton } from '../molecules/MovieListSkeleton';
+import { setErrorsList } from '../../store/home';
 const MovieList = lazy(()=> import("../molecules/MovieList"));
 
 export interface Props {
@@ -12,15 +14,23 @@ export interface Props {
 }
 
 export const MovieSlider = ({ section }: Props) => {
+    const dispatch = useAppDispatch();
     const { showSlider, observeRef } = useInfiniteScroll();
     const { state: filmsByCategory, response } = useFetch<ListModel>(() => listService().getByCategory(section),showSlider);
     const totalFilms = filmsByCategory?.contents.data.length;
     
     const {handleClickLeft, handleClickRight, sliderRef, slideNumber, totalSlides} = useSlider(totalFilms? totalFilms : numberFilmsPerSection);
-
+    
     //do not show MovieList when a category endpoint gives an error
-    if (response === Meta.ERROR) return <></>;
 
+    useEffect(() => {
+        if (response === Meta.ERROR) {
+            dispatch(setErrorsList());
+       }
+    }, [response]);
+
+    if (response === Meta.ERROR) return <></>;
+   
     return (
         <Suspense>
             <section >
