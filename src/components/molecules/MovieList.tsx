@@ -3,7 +3,7 @@ import { ListItemModel } from '../../models/list/ListModel';
 import { MovieCardItem } from '../atoms';
 
 interface Props {
-    movieList: ListItemModel[]
+    movieList: ListItemModel[];
 }
 
 const MovieList = ({ movieList }: Props) => {

@@ -1,9 +1,18 @@
+.slider-wrapper {
+    :hover {
+        .list-arrow {
+            svg {
+                display: block;
+            }
+        }
+    }
+}
+
 .list-wrapper {
     position: relative;
     overflow-x: visible;
     margin-top: 12px;
     margin-bottom: 48px;
-  
 
     .list-container {
         position: relative;
@@ -24,18 +33,18 @@
     height: 100%;
     width: 24px;
     top: 0px;
-    
     z-index: 1;
     cursor: pointer;
     transition: opacity 400ms;
-    opacity: .9;
+    opacity: 0.9;
 
     svg {
         fill: var(--color-neutral-100);
+        display: none;
     }
 }
 
-.list-arrow--right{
+.list-arrow--right {
     left: 100%;
     background: linear-gradient(
         to right,
@@ -52,7 +61,7 @@
     }
 }
 
-.list-arrow--left{
+.list-arrow--left {
     right: 100%;
     background: linear-gradient(
         to left,

@@ -9,18 +9,13 @@ import { MovieHighlightSkeleton } from '../atoms/MovieHighlightSkeleton';
 export const MoviePreviewCard = () => {
     const { id } = useParams();
     const { state: movie, response } = useFetch<MovieModel>(() => movieService().getByMovieTitle(id ? id : ""), true);
-    console.log(movie);
 
     return (
         <Suspense>
             <section>
                 {
                     movie
-                        ? <MovieHighlight
-                            image={movie.images.snapshot}
-                            altText={movie.id}
-                            title={movie.title}
-                        />
+                        ? <MovieHighlight movie={movie}/>
                         : <MovieHighlightSkeleton />
                 }
             </section>

@@ -2,4 +2,18 @@
     height: 100%;
     width: 100%;
     fill: var(--color-neutral-100);
+    cursor: pointer;
+}
+
+.icon-arrow-back {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;    
+}
+
+@media (min-width: 1100px) {
+    .icon-arrow-back {
+        height: 40px;
+        width: 40px;
+    }
 }

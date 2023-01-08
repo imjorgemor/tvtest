@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { homeSlice } from './home/homeSlice';
-
+import { home } from './home/homeSlice';
+import {stream} from './stream/streamSlice';
 
 export const store = configureStore({
     reducer: {
-        homeSlice: homeSlice.reducer
+        home: home.reducer,
+        streamContent: stream.reducer
     }
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+export default store;
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;

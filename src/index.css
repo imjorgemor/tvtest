@@ -5,6 +5,20 @@
     src: url('./assets/fonts/RakutenSans.woff2') format('woff');
 }
 
+@font-face {
+    font-family: 'RakutenSansBk';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/RakutenSansBlk.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'RakutenSansBd';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/RakutenSansBd.woff2') format('woff');
+}
+
 :root {
     /* Root main size */
     --root-desktop-font-size: 20px;
@@ -55,6 +69,7 @@ body {
     color: var(--color-neutral-100);
     font-size: var(--root-mobile-font-size);
     min-height: 100vh;
+    font-family: RakutenSansRg, sans-serif;
 }
 
 @media (min-width: 1100px) {
@@ -85,12 +100,14 @@ h1 {
     color: var(--color-neutral-100);
     font-size: var(--font-mobile-movie-title-h1-size);
     font-weight: var(--font-mobile-movie-title-h1-weight);
+    font-family: RakutenSansBk;
 }
 
 h5 {
     font-size: var(--font-mobile-home-title-md-size);
     font-weight: var(--font-mobile-home-title-md-weight);
     line-height: var(--font-mobile-home-title-md-height);
+    font-family: RakutenSansBd;
 }
 
 @media (min-width: 1100px) {
