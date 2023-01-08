@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const MovieTitle = ({ title }: { title: string }) => {
+export const MovieTitle = ({ children }: { children: string }) => {
     return (
-        <h1>{title}</h1>
+        <h1>{children}</h1>
     );
 };

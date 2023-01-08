@@ -1,4 +1,4 @@
-.app-button  {
+.app-button {
     border: none;
     outline: none;
     display: flex;
@@ -16,4 +16,12 @@
     color: rgb(0, 0, 0);
     width: 100%;
     font-weight: 900;
+    font-size: 0.9rem;
+    margin: .5rem 0;
+}
+
+@media (min-width: 1100px) {
+    .app-button {
+        font-size: 1rem;
+    }
 }

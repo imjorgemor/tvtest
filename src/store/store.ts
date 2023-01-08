@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { homeSlice } from './home/homeSlice';
+import { home } from './home/homeSlice';
+import {stream} from './stream/streamSlice';
 
 export const store = configureStore({
     reducer: {
-        homeSlice: homeSlice.reducer
+        home: home.reducer,
+        streamContent: stream.reducer
     }
 });
 

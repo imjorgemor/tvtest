@@ -1,33 +1,46 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, MovieTitle } from '../atoms';
+import { useAppDispatch } from '../../hooks';
+import { MovieModel } from '../../models/movie';
+import { setStreamContent } from '../../store/stream';
+import { Button, IMDbRating, MovieTitle, Text } from '../atoms';
 
 interface Props {
-    image: string;
-    altText: string;
-    title: string;
-    id: string
+    movie: MovieModel;
 }
 
-export const MovieHighlight = ({ image, altText, title, id }: Props) => {
+export const MovieHighlight = ({ movie }: Props) => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    const handleClick = () => {
+        dispatch(setStreamContent(movie));
+        navigate(`/player/movies/stream/${movie.id}`);
+    };
+
     return (
         <div className='movie-highlight'>
-            <div className='highlight-filter'></div>
-            <img src={image} alt={altText} />
-            <div className='highlight-title'>
-                <MovieTitle title={title} />
+            <div style={{ width: "100%" }}>
+                <div className='highlight-filter'></div>
+                <img src={movie.images.snapshot} alt={movie.title} />
+                <div className='highlight-title'>
+                    <MovieTitle>{movie.title}</MovieTitle>
+                </div>
             </div>
             <div className='highlight-body'>
-                <div>
-                    <Button
-                        text='Ver trailer gratis con anuncios'
-                        onClick={() => navigate(`/player/movies/stream/${id}`)}
-                    />
+                <div className='highlight-button-wrapper'>
+                    <Button onClick={() => handleClick()}>Ver trailer gratis con anuncios</Button>
                 </div>
-                <div></div>
-            </div>
 
+                <div className='highlight-details'>
+                    <div className='highlight-label'>
+                        <IMDbRating rating={movie.scores[0].score} />
+                        <Text bold tone='neutral-200'>{movie.year}</Text>
+                        <Text bold tone='neutral-200'>{`${movie.duration}min`}</Text>
+                    </div>
+                    <Text tone='neutral-300' size='md'>{movie.plot}</Text>
+                </div>
+            </div>
         </div>
     );
 };

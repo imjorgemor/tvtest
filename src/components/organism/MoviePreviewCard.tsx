@@ -15,12 +15,7 @@ export const MoviePreviewCard = () => {
             <section>
                 {
                     movie
-                        ? <MovieHighlight
-                            id={movie.id}
-                            image={movie.images.snapshot}
-                            altText={movie.id}
-                            title={movie.title}
-                        />
+                        ? <MovieHighlight movie={movie}/>
                         : <MovieHighlightSkeleton />
                 }
             </section>

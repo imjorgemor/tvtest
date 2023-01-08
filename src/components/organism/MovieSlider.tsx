@@ -7,6 +7,7 @@ import { useFetch, useSlider, useInfiniteScroll } from '../../hooks';
 import { Meta, numberFilmsPerSection } from '../../definitions';
 import { MovieListSkeleton } from '../molecules/MovieListSkeleton';
 import { setErrorsList } from '../../store/home';
+import { SectionTitle } from '../atoms';
 const MovieList = lazy(()=> import("../molecules/MovieList"));
 
 export interface Props {
@@ -21,8 +22,7 @@ export const MovieSlider = ({ section }: Props) => {
     
     const {handleClickLeft, handleClickRight, sliderRef, slideNumber, totalSlides} = useSlider(totalFilms? totalFilms : numberFilmsPerSection);
     
-    //do not show MovieList when a category endpoint gives an error
-
+    //if more than x categories fail do not show MovieList when a category endpoint gives an error
     useEffect(() => {
         if (response === Meta.ERROR) {
             dispatch(setErrorsList());
@@ -35,7 +35,11 @@ export const MovieSlider = ({ section }: Props) => {
         <Suspense>
             <section >
                 <div ref={observeRef}>
-                    <h5>{filmsByCategory && showSlider? filmsByCategory.name : "loading..."}</h5>
+                    {
+                        filmsByCategory && showSlider
+                        ? <SectionTitle>{filmsByCategory.name}</SectionTitle> 
+                        : "loading..."
+                    }
                 </div>
                 <div className='list-wrapper'>
                     <div
@@ -57,7 +61,6 @@ export const MovieSlider = ({ section }: Props) => {
                         className='list-arrow list-arrow--right'
                         onClick={() => handleClickRight()}
                         style={{ display: slideNumber === totalSlides ? 'none' : '' }}
-
                     >
                         <ArrowRight />
                     </div>

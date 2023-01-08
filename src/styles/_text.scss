@@ -1,0 +1,44 @@
+//'neutral-100' | 'neutral-200' | 'neutral-300' | 'neutral-400' | 'yellow'
+.app-text--neutral-100 {
+    color: var(--color-neutral-100)
+}
+.app-text--neutral-200 {
+    color: var(--color-neutral-200)
+}
+
+.app-text--neutral-300 {
+    color: var(--color-neutral-300)
+}
+
+.app-text--neutral-400 {
+    color: var(--color-neutral-400)
+}
+
+.app-text--yellow {
+    color: var(--color-yellow)
+}
+
+.app-text--sm {
+    line-height: 20px;
+    font-size: 0.825rem;
+}
+
+.app-text--md {
+    line-height: 24px;
+    font-size: 1rem;
+}
+
+.app-text--bold{
+    font-weight: 600;
+}
+
+@media (min-width: 1100px){
+    .app-text--sm{
+        font-size: 1rem;
+    }
+    .app-text--md {
+        font-size: 1.25rem;
+        line-height: 30px;
+    }
+}
+

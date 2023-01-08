@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import { Root } from './Root';
-import { ErrorPage, HomePage, MoviePlayer } from '../views';
-import ScrollTopRouter from './ScrollTopRouter';
+import { ErrorPage, HomePage, StreamPage } from '../views';
 
 const DetailPage = lazy(() => import(/*webpackChunkName: "LazyPage1" */ "../views/DetailPage"));
 
@@ -10,11 +9,10 @@ const DetailPage = lazy(() => import(/*webpackChunkName: "LazyPage1" */ "../view
 export const AppRouter = () => {
     const router = createBrowserRouter(
         createRoutesFromElements(
-
             <Route path='/' element={<Root />} errorElement={<ErrorPage />}>
                 <Route index element={<HomePage />} />
                 <Route path="/movies/:id" element={<DetailPage />} />
-                <Route path="/player/movies/stream/:id" element={<MoviePlayer />} />
+                <Route path="/player/movies/stream/:id" element={<StreamPage />} />
             </Route>
         )
     );
