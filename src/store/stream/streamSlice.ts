@@ -4,10 +4,10 @@ import { MovieModel } from '../../models/movie';
 type InitialState = {
     streamLoaded: boolean
     content: MovieModel | null
-    playerConfiguration: Player| null
+    playerConfiguration: PlayerConf | null
 }
 
-type Player = {
+type PlayerConf = {
     library: string
     drmType: string
 }
@@ -28,7 +28,7 @@ export const stream = createSlice({
         setStreamContent: (state, action: PayloadAction<MovieModel | null>) => {
             state.content = action.payload;
         },
-        setPlayerConfiguration: (state, action: PayloadAction<Player | null>) => {
+        setPlayerConfiguration: (state, action: PayloadAction<PlayerConf | null>) => {
             state.playerConfiguration = action.payload;
         }
     }

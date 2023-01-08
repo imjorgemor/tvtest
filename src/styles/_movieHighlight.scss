@@ -13,11 +13,11 @@
         right: 0;
         height: 35vh;
         background: linear-gradient(
-                    rgba(16, 16, 16, 0) 60%,
-                    rgb(22, 22, 22) 100%
+                    #10101000 60%,
+                    #161616 100%
                 )
                 0% 0% / cover,
-            linear-gradient(to left, transparent 0%, rgba(16, 16, 16, 0.4) 100%);
+            linear-gradient(to left, transparent 0%, #10101066 100%);
     }
     img {
         height: 35vh;

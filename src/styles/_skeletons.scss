@@ -13,6 +13,13 @@
     height: 35vh;
 }
 
+.title-skeleton {
+    background-color: var(--color-neutral-400);
+    width: 250px;
+    height: 20px;
+    margin-bottom: 1.5rem;
+}
+
 @media (min-width: 800px) {
     .movie-highlight-skeleton {
         border-top-right-radius: var(--radius-medium);

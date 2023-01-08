@@ -3,13 +3,6 @@
     min-width: 33.33%;
 }
 
-// @media (min-width: 450px) {
-//     .card-item {
-//         min-width: 25%;
-//     }
-// }
-// media query removed as 25%(4) is not module of 18 (films displayed in the slider)
-
 @media (min-width: 800px) {
     .card-item {
         min-width: 16.66666%;

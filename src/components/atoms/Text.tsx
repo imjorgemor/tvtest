@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
     children: string | number;
     tone?: 'neutral-100' | 'neutral-200' | 'neutral-300' | 'neutral-400' | 'yellow';
-    size?: 'sm' | 'md'
+    size?: 'sm' | 'md' | 'lg'
     bold?: boolean
 }
 
