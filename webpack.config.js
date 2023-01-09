@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: "development",
@@ -59,5 +60,9 @@ module.exports = {
     ignoreWarnings: [/"Devtools failed to parse source map"/],
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js'],
-    }
+    },
+    // eslint-disable-next-line no-dupe-keys
+    plugins: [
+        new Dotenv(),
+    ]
 };

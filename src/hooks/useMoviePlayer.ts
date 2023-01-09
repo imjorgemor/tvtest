@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Player, PlayerAPI } from 'bitmovin-player';
-import { UIFactory } from 'bitmovin-player/bitmovinplayer-ui';
-import { useNavigate } from 'react-router-dom';
-import 'bitmovin-player/bitmovinplayer-ui.css';
 import { useAppDispatch, useAppSelector } from './reducerHooks';
-import { playerConfig } from '../config';
 import { setPlayerConfiguration, setStreamContent, setStreamLoaded } from '../store/stream';
 
 export const useMoviePlayer = () => {
@@ -13,7 +9,18 @@ export const useMoviePlayer = () => {
     const streamSlice = useAppSelector(state => state.streamContent);
     const dispatch = useAppDispatch();
     const { content } = streamSlice;
-    const navigate = useNavigate();
+
+
+    const BITMOVIN_KEY = process.env.REACT_APP_BITMOVIN_KEY ?process.env.REACT_APP_BITMOVIN_KEY: "";
+
+    const playerConfig = {
+        key: BITMOVIN_KEY,
+        ui: false,
+        playback: {
+            autoplay: true,
+            muted: true
+        },
+    };
 
     const playerSource = {
         dash: 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd',
@@ -23,10 +30,10 @@ export const useMoviePlayer = () => {
 
     const playerDiv = useRef(null);
 
+
     const setupPlayer = () => {
         if (playerDiv.current) {
             const playerInstance = new Player(playerDiv.current, playerConfig);
-            UIFactory.buildDefaultUI(playerInstance);
             playerInstance.load(playerSource).then(() => {
                 setPlayer(playerInstance);
                 dispatch(setPlayerConfiguration({ library: 'bitmovin', drmType: "" }));
@@ -41,17 +48,11 @@ export const useMoviePlayer = () => {
         if (player != null) {
             player.destroy();
             setPlayer(null);
+            //when destroy player return redux state to null
             dispatch(setStreamLoaded(false));
             dispatch(setPlayerConfiguration(null));
             dispatch(setStreamContent(null));
         }
-    };
-
-    const handleClickBack = () => {
-        navigate(-1);
-        dispatch(setStreamLoaded(false));
-        dispatch(setPlayerConfiguration(null));
-        dispatch(setStreamContent(null));
     };
 
     useEffect(() => {
@@ -61,5 +62,5 @@ export const useMoviePlayer = () => {
         };
     }, []);
 
-    return {playerDiv, handleClickBack};
+    return { playerDiv };
 };

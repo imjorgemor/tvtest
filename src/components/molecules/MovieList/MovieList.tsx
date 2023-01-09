@@ -1,6 +1,6 @@
 import React from 'react';
-import { ListItemModel } from '../../models/list/ListModel';
-import { MovieCardItem } from '../atoms';
+import { ListItemModel } from '../../../models/list/ListModel';
+import { MovieCardItem } from '../../atoms';
 
 interface Props {
     movieList: ListItemModel[];

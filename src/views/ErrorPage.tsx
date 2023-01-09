@@ -18,7 +18,7 @@ export const ErrorPage = () => {
                 <h1>Vaya!</h1>
                 <h5>Parece que no encontramos lo que estás buscando</h5>
                 <div>
-                    <Button onClick={() => navigate(-1)}>Volver</Button>
+                    <Button onClick={() => navigate("/")}>Volver</Button>
                 </div>
             </MainTemplate>
         </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../hooks';
-import { MovieModel } from '../../models/movie';
-import { setStreamContent } from '../../store/stream';
-import { Button, IMDbRating, MovieTitle, Text } from '../atoms';
+import { useAppDispatch } from '../../../hooks';
+import { MovieModel } from '../../../models/movie';
+import { setStreamContent } from '../../../store/stream';
+import { Button, IMDbRating, MovieTitle, Text } from '../../atoms';
 
 interface Props {
     movie: MovieModel;
