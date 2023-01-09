@@ -94,7 +94,7 @@ Developer experience is a great value to consider. To this regard I have impleme
 
 As the api responses in case of success or error do not return the same Data Transfer Object I have implemented a repository pattern to decouple the data fetching from the component, adding a layer of data transformation or adaptation to a unified model of data (i.e Meta model) and a simple repository factory to avoid code duplication when calling the repository.
 
-![repository](https://github.com/imjorgemor/tvtest/blob/main/src/assets/images/repositoryPattern.png)
+![repository](https://github.com/imjorgemor/tvtest/blob/main/src/assets/images/repositoryPatternDiagram.png)
 
 In this sense layering the data fetching with a simple repository pattern also improves the developing experience as the developer only have to call the service required from the component.
 
