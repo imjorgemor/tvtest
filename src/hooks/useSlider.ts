@@ -4,7 +4,7 @@ export const useSlider = (totalFilms: number) => {
     const sliderRef = useRef<HTMLDivElement>(null);
     // I number of films visible per scrolling block get from useEffect I
     const [filmsVisible, setFilmsVisible] = useState(3);
-    // II. number of blocks to move (min 1) calc from totalfilms / films visible
+    // II. number of blocks to move (min 1) calc from totalfilms / films visible. Although I believe this data is controlled by the slider component as in the rakuten website always show 24 items. This would reduce the number of states and thus reduce the re-renders of updating each state;
     const [totalSlides, setTotalSlides] = useState(2);
     // III. slide position visible
     const [slideNumber, setSlideNumber] = useState(1);

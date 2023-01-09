@@ -14,35 +14,33 @@ export interface MovieResponse {
 
 export default class MovieRepository {
     async getByMovieTitle(movie: string): Promise<MovieResponse> {
-        let listResponseData: MovieResponse = {
+        //here is where the magic happens
+        let movieResponseData: MovieResponse = {
             data: null,
             meta: ""
         };
 
         try {
-
             const response = await appFetch<MovieDTO>(`${BASE_URL}/movies/${movie}?classification_id=5&device_identifier=web&locale=es&market_code=es`);
             const data = await response.json();
             
-            
             if (response.status === 200) {
-                listResponseData = {
+                movieResponseData = {
                     data: data.data,
                     meta: Meta.SUCCESS
                 };
             } else {
-                listResponseData = {
+                movieResponseData = {
                     data: null,
                     meta: Meta.ERROR
                 };
             }
         } catch (error){
-
-            listResponseData = {
+            movieResponseData = {
                 data: null,
                 meta: Meta.ERROR
             };
         }
-        return listResponseData;
+        return movieResponseData;
     }
 }

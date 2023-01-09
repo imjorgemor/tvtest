@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Player, PlayerAPI } from 'bitmovin-player';
 import { useAppDispatch, useAppSelector } from './reducerHooks';
 import { setPlayerConfiguration, setStreamContent, setStreamLoaded } from '../store/stream';
-import { useNavigate } from 'react-router-dom';
 
 export const useMoviePlayer = () => {
     const [player, setPlayer] = useState<PlayerAPI | null>(null);
@@ -11,8 +11,8 @@ export const useMoviePlayer = () => {
     const { content } = streamSlice;
     const navigate = useNavigate();
 
-
     //bitmovin config could not detect eventually env variables, https://community.bitmovin.com/t/using-valid-player-key-throwing-setup-license-error-when-application-is-hosted/1085/7
+    //if the player gives an error on license plese notify me at jorge-mor@outlook.es as I am using a free license tier and could give some error license after too many renders
     const playerConfig = {
         key: 'D04DD48D-BE6C-4C39-A937-D625968034C4',
         ui: false,
