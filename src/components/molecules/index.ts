@@ -1,3 +1,3 @@
-export * from './MovieListSkeleton';
-export * from './MovieList';
-export * from './MovieHighlight';
+export * from './MovieListSkeleton/MovieListSkeleton';
+export * from './MovieList/MovieList';
+export * from './MovieHighlight/MovieHighlight';

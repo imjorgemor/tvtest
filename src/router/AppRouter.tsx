@@ -1,10 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import { Root } from './Root';
-import { ErrorPage, HomePage } from '../views';
-
-const DetailPage = lazy(() => import(/*webpackChunkName: "LazyPage1" */ "../views/DetailPage"));
-const StreamPage = lazy(() => import(/*webpackChunkName: "LazyPage2" */ "../views/StreamPage"));
+import { ErrorPage, HomePage, DetailPage, StreamPage } from '../views';
 
 
 export const AppRouter = () => {
@@ -20,8 +17,6 @@ export const AppRouter = () => {
     );
 
     return (
-        <Suspense>
             <RouterProvider router={router} />
-        </Suspense>
     );
 };

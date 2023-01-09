@@ -1,13 +1,24 @@
 import React, { Suspense } from 'react';
-import { useAppSelector, useMoviePlayer } from '../../hooks';
-import { ArrowBack } from '../../assets/icons';
-import { MovieTitle, Text } from '../atoms';
+import { useAppSelector, useAppDispatch, useMoviePlayer } from '../../../hooks';
+import { ArrowBack } from '../../../assets/icons';
+import { MovieTitle, Text } from '../../atoms';
+import { setPlayerConfiguration, setStreamContent, setStreamLoaded } from '../../../store/stream';
+import { useNavigate } from 'react-router-dom';
 
 
 export const MoviePlayer = () => {
-    const { playerDiv, handleClickBack } = useMoviePlayer();
+    const { playerDiv } = useMoviePlayer();
     const streamSlice = useAppSelector(state => state.streamContent);
     const { content } = streamSlice;
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const handleClickBack = () => {
+        dispatch(setStreamLoaded(false));
+        dispatch(setPlayerConfiguration(null));
+        dispatch(setStreamContent(null));
+        navigate(-1);
+    };
 
     return (
         <Suspense>

@@ -7,7 +7,6 @@ export interface ListModel {
     name: string;
     contents: {
         data: ListItemModel[];
-        meta: MetaListModel;
     }
 }
 

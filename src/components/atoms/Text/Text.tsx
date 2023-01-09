@@ -7,11 +7,12 @@ interface Props {
     bold?: boolean
 }
 
-export const Text = ({ children, tone = 'neutral-100', size= 'sm', bold = false }: Props) => {
+export const Text = ({ children, tone = 'neutral-100', size = 'sm', bold = false }: Props) => {
     const fontWeight = bold ? "bold" : "";
 
     return (
         <span
+            data-testid='app-text'
             className={`app-text--${tone} app-text--${size} app-text--${fontWeight}`}
         >{children}</span>
     );

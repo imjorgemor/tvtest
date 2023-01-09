@@ -7,15 +7,18 @@ interface Props {
     id?: string;
 }
 
-export const MovieCardItem = ({ filmTitle = "", artwork= "", id="" }: Props) => {
+export const MovieCardItem = ({ filmTitle = "", artwork = "", id = "" }: Props) => {
     return (
         <div className='card-item'>
             <Link to={`/movies/${id}`}>
                 <div className='card-container'>
                     <div className='card-skeleton'>
-                        { 
+                        {
                             artwork.length
-                                ? <img src={artwork} alt={filmTitle} />
+                                ? <img
+                                    data-testid='card-image'
+                                    src={artwork}
+                                    alt={filmTitle} />
                                 : null
                         }
                     </div>
