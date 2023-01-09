@@ -2,19 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import { Player, PlayerAPI } from 'bitmovin-player';
 import { useAppDispatch, useAppSelector } from './reducerHooks';
 import { setPlayerConfiguration, setStreamContent, setStreamLoaded } from '../store/stream';
+import { useNavigate } from 'react-router-dom';
 
 export const useMoviePlayer = () => {
-
     const [player, setPlayer] = useState<PlayerAPI | null>(null);
     const streamSlice = useAppSelector(state => state.streamContent);
     const dispatch = useAppDispatch();
     const { content } = streamSlice;
+    const navigate = useNavigate();
 
 
-    const BITMOVIN_KEY = process.env.REACT_APP_BITMOVIN_KEY ?process.env.REACT_APP_BITMOVIN_KEY: "";
-
+    //bitmovin config could not detect eventually env variables, https://community.bitmovin.com/t/using-valid-player-key-throwing-setup-license-error-when-application-is-hosted/1085/7
     const playerConfig = {
-        key: BITMOVIN_KEY,
+        key: 'D04DD48D-BE6C-4C39-A937-D625968034C4',
         ui: false,
         playback: {
             autoplay: true,
@@ -30,7 +30,6 @@ export const useMoviePlayer = () => {
 
     const playerDiv = useRef(null);
 
-
     const setupPlayer = () => {
         if (playerDiv.current) {
             const playerInstance = new Player(playerDiv.current, playerConfig);
@@ -39,7 +38,7 @@ export const useMoviePlayer = () => {
                 dispatch(setPlayerConfiguration({ library: 'bitmovin', drmType: "" }));
                 dispatch(setStreamLoaded(true));
             }, () => {
-                //redirect error page
+                navigate('/not_found/');
             });
         }
     };
@@ -62,5 +61,5 @@ export const useMoviePlayer = () => {
         };
     }, []);
 
-    return { playerDiv };
+    return { playerDiv, destroyPlayer };
 };

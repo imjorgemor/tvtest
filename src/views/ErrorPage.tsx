@@ -1,6 +1,6 @@
 import React from "react";
-import { useRouteError, useNavigate } from "react-router-dom";
-import { Button } from "../components/atoms";
+import { useNavigate } from "react-router-dom";
+import { Button, Text } from "../components/atoms";
 import { MainTemplate } from "../components/templates";
 
 type Error = {
@@ -11,12 +11,12 @@ type Error = {
 export const ErrorPage = () => {
     const navigate = useNavigate();
 
-
     return (
         <div id="error-page">
             <MainTemplate>
                 <h1>Vaya!</h1>
-                <h5>Parece que no encontramos lo que estás buscando</h5>
+                <h5>Parece que algo ha ido mal</h5>
+                <Text>Te sugerimos recargar el navegador</Text>
                 <div>
                     <Button onClick={() => navigate("/")}>Volver</Button>
                 </div>
