@@ -1,4 +1,3 @@
-import React from 'react';
 import { Highlight, MovieSlider } from '../components/organism';
 import { filmSections } from '../definitions';
 import { MainTemplate } from '../components/templates';

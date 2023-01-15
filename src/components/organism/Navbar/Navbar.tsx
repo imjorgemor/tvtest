@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { TvTestLogo } from '../../../assets/svg';
 import { useBackground } from '../../../hooks/useBackground';

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { ArrowLeft, ArrowRight } from '../../../assets/icons';
 import { listService } from '../../../repository/services/listService';

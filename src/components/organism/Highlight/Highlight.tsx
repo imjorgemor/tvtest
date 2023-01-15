@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Highlight = () => {
     return (
         <header className='home-highlight'>

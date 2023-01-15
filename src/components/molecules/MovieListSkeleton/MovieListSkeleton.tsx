@@ -1,4 +1,3 @@
-import React from 'react';
 import { MovieCardItem } from '../../atoms';
 
 export const MovieListSkeleton = () => {

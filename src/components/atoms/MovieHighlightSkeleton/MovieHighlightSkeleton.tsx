@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const MovieHighlightSkeleton = () => {
     return (
         <div

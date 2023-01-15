@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../../hooks';
 import { MovieModel } from '../../../models/movie';

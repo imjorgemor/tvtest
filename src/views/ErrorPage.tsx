@@ -1,12 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Text } from "../components/atoms";
 import { MainTemplate } from "../components/templates";
-
-type Error = {
-    statusText: string,
-    message: string
-}
 
 export const ErrorPage = () => {
     const navigate = useNavigate();

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const IMDbRating = ({ rating }: { rating: number }) => {
     return (
         <div className='IMDb-wrapper'>

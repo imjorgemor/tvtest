@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import { Root } from './Root';
 import { ErrorPage, HomePage, DetailPage, StreamPage } from '../views';

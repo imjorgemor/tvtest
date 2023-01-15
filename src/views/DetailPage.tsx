@@ -1,4 +1,3 @@
-import React from 'react';
 import { MoviePreviewCard } from '../components/organism';
 import { MovieTemplate } from '../components/templates';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ListItemModel } from '../../../models/list/ListModel';
 import { MovieCardItem } from '../../atoms';
 
