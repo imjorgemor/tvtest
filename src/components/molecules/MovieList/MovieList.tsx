@@ -9,9 +9,9 @@ const MovieList = ({ movieList }: Props) => {
     return (
         <>
             {
-                movieList.map((film: ListItemModel) => (
+                movieList.map((film: ListItemModel, index) => (
                     <MovieCardItem
-                        key={film.id}
+                        key={film.id + index}
                         id={film.id}
                         filmTitle={film.title}
                         artwork={film.images.artwork}

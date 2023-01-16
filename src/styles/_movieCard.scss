@@ -3,6 +3,12 @@
     min-width: 33.33%;
 }
 
+@media (min-width: 450px) {
+    .card-item {
+        min-width: 25%;
+    }
+}
+
 @media (min-width: 800px) {
     .card-item {
         min-width: 16.66666%;

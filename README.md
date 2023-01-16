@@ -1,5 +1,7 @@
 # RAKUTEN TV TEST
 
+UPDATE NOTE: React fast refresh configuration improved with better performance
+
 * [About The Project](#about)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)

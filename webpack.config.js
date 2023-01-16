@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
         output: {
             filename: !isDevelopment
                 ? '[name].[contenthash].js'
-                : 'main.js',
+                : '[name].bundle.js',
             path: path.resolve(__dirname, 'build'),
             assetModuleFilename: "assets/[hash][ext][query]"
         },
@@ -109,5 +109,16 @@ module.exports = (env, argv) => {
         resolve: {
             extensions: ['.tsx', '.ts', '.jsx', '.js'],  //accept both extensions on src files
         },
+        optimization: {
+            splitChunks: {
+              cacheGroups: {
+                reactVendor: {
+                  test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom|react-redux|bitmovin-player|bitmovin-player-ui)[\\/]/,
+                  name: 'vendor-react',
+                  chunks: 'all',
+                },
+              },
+            },
+          },
     };
 };
