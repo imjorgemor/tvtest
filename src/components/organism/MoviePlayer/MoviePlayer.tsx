@@ -1,47 +1,51 @@
-import { Suspense } from 'react';
+import { Suspense} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector, useAppDispatch, useMoviePlayer } from '../../../hooks';
+import { useAppSelector, useMoviePlayer } from '../../../hooks';
 import { ArrowBack } from '../../../assets/icons';
 import { MovieTitle, Text } from '../../atoms';
-import { setPlayerConfiguration, setStreamContent, setStreamLoaded } from '../../../store/stream';
+import { ReactShakaPlayer } from "@mkhuda/react-shaka-player";
+import "@mkhuda/react-shaka-player/dist/ui.css";
 
 
 export const MoviePlayer = () => {
-    const { playerDiv, destroyPlayer } = useMoviePlayer();
-    const streamSlice = useAppSelector(state => state.streamContent);
-    const { content } = streamSlice;
-    const dispatch = useAppDispatch();
+    const { content } = useAppSelector(state => state.streamContent);
+    const {setMainPlayer, playerSource, config, uiConfig, onPlay, onPause, onBuffering, onLoad, handleClickBack } = useMoviePlayer();
     const navigate = useNavigate();
-
-    const handleClickBack = () => {
-        dispatch(setStreamLoaded(false));
-        dispatch(setPlayerConfiguration(null));
-        dispatch(setStreamContent(null));
-        destroyPlayer();
-        navigate(-1);
-    };
 
     return (
         <Suspense>
             <div
                 className='movie-player'
                 id='player'
-                ref={playerDiv}
             >
-                <div>
-                    <div className='movie-content-wrapper'>
-                        <div onClick={() => handleClickBack()}>
-                            <ArrowBack />
-                        </div>
-                        {
-                            content
-                                ? <div>
-                                    <Text tone='neutral-200' size='md'>Viendo</Text>
-                                    <MovieTitle>{content?.title ? content?.title : ""}</MovieTitle>
-                                </div>
-                                : <></>
-                        }
+                <ReactShakaPlayer
+                    playerClassName="player-class-name"
+                    autoPlay={true}
+                    src={playerSource.dash}
+                    config={config}
+                    uiConfig={uiConfig}
+                    onLoad={(player) => {
+                        setMainPlayer(player);
+                        onLoad();
+                    }}
+                    onPlay={onPlay}
+                    onPause={onPause}
+                    onBuffering={onBuffering}
+                    onPlayerError={() => navigate('/not_found/')}
+                />
+
+                <div className='movie-content-wrapper'>
+                    <div onClick={() => handleClickBack()}>
+                        <ArrowBack />
                     </div>
+                    {
+                        content
+                            ? <div>
+                                <Text tone='neutral-200' size='md'>Viendo</Text>
+                                <MovieTitle>{content?.title ? content?.title : ""}</MovieTitle>
+                            </div>
+                            : <></>
+                    }
                 </div>
             </div>
         </Suspense>
