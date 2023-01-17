@@ -45,16 +45,17 @@
         "whatwg-fetch": "^3.6.2"
     },
     "dependencies": {
+        "@mkhuda/react-shaka-player": "^1.2.2",
         "@reduxjs/toolkit": "^1.9.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^14.4.3",
-        "bitmovin-player": "^8.0.0",
-        "bitmovin-player-ui": "^3.40.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-redux": "^8.0.5",
-        "react-router-dom": "^6.6.1"
+        "react-router-dom": "^6.6.1",
+        "shaka-player": "^4.3.3",
+        "shaka-player-react": "^1.1.5"
     },
     "eslintConfig": {
         "extends": [

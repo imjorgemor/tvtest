@@ -3,6 +3,10 @@
     position: relative;
     z-index: 600;
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .movie-player:hover .movie-content-wrapper {
@@ -22,7 +26,7 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100vw;
-    height: 48%;
+    height: fit-content;
     background: #101010;
     background: -moz-linear-gradient(
         180deg,
@@ -40,6 +44,12 @@
         rgba(0, 0, 0, 0) 68%
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#101010",endColorstr="#000000",GradientType=1);
+}
+
+@media (min-width: 800px) {
+    .movie-player {
+       align-items: flex-start;
+    }
 }
 
 

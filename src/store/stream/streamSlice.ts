@@ -2,20 +2,26 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MovieModel } from '../../models/movie';
 
 type InitialState = {
-    streamLoaded: boolean
-    content: MovieModel | null
-    playerConfiguration: PlayerConf | null
+    streamLoaded: boolean,
+    content: MovieModel | null,
+    playerConfiguration: PlayerConf | null,
 }
 
 type PlayerConf = {
-    library: string
-    drmType: string
+    playing: 'playing' |  null
+    pause: 'pause' | null
+    buffering: 'buffering' | null
 }
+
 
 const initialState: InitialState = {
     streamLoaded: false,
     content: null,
-    playerConfiguration: null
+    playerConfiguration: {
+        playing: null,
+        pause: null,
+        buffering: null
+    }
 };
 
 export const stream = createSlice({
@@ -28,11 +34,27 @@ export const stream = createSlice({
         setStreamContent: (state, action: PayloadAction<MovieModel | null>) => {
             state.content = action.payload;
         },
-        setPlayerConfiguration: (state, action: PayloadAction<PlayerConf | null>) => {
-            state.playerConfiguration = action.payload;
+        setPlay: (state) => {
+            if (state.playerConfiguration){
+                state.playerConfiguration= {...state.playerConfiguration, playing: "playing", pause: null };
+            } 
+        },
+        setPause: (state) => {
+            if (state.playerConfiguration){
+                state.playerConfiguration= {...state.playerConfiguration, playing: null, pause:"pause" };
+            } 
+        },
+        setBuffering: (state) => {
+            if (state.playerConfiguration){
+                state.playerConfiguration= {...state.playerConfiguration, buffering: "buffering"};
+            } 
+        },
+        resetPlayerConfiguration: (state) => {
+            state.playerConfiguration = null;
         }
+
     }
 });
 
 export default stream.reducer;
-export const { setStreamLoaded, setStreamContent, setPlayerConfiguration } = stream.actions;
+export const { setStreamLoaded, setStreamContent, resetPlayerConfiguration, setPlay, setPause, setBuffering } = stream.actions;

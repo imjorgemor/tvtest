@@ -1,6 +1,6 @@
 # RAKUTEN TV TEST
 
-UPDATE NOTE: React fast refresh configuration improved with better performance and reduced bundle size. Improved ui in slider component with the touch position indicator.
+UPDATE NOTE: React fast refresh configuration improved with better performance and reduced bundle size. Improved ui in slider component with the touch position indicator and migration from bitmovin to shaka library with custom ui.
 
 * [About The Project](#about)
 * [Built With](#built-with)
@@ -123,11 +123,11 @@ For the purpose of this test I have used bitmovin library as it is really fast t
 
 - [x] Reduze or minimize bundle size for better performance
 - [x] Add the slider dots to inform the user the total of scrolls and the current position.
-- [ ] Migrate Bitmovin library to Shaka library(the one used by rakuten) using a personalized UI.
-- [ ] Make the horizontal slide scroll infinite like the rakuten website.
+- [x] Migrate Bitmovin library to Shaka library(the one used by rakuten) using a personalized UI.
 - [ ] Add integration tests to redux
 - [ ] Add end2end test with playwright
 - [ ] Add preview card in the home page when mouse-over each film
+- [ ] Make the horizontal slide scroll infinite like the rakuten website.
 
 ## Contact
 

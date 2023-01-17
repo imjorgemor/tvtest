@@ -1,0 +1,36 @@
+.shaka-controls-container:hover {
+    .shaka-play-button {
+        opacity: 1 !important;
+    }
+}
+
+.shaka-range-element::-webkit-slider-thumb {
+    border-radius: 50% !important;
+    height: 30px !important;
+    width: 30px !important;
+    background: #f1f1f1 !important;
+}
+
+.shaka-range-element::-webkit-slider-runnable-track {
+    height: 20px !important;
+}
+
+.shaka-range-container {
+    border-radius: 1rem !important;
+    background-color: rgba(16, 16, 16, 0.7) !important;
+}
+
+.shaka-play-button {
+    opacity: 0 !important;
+    max-width: 10% !important;
+
+    background-color: rgba(16, 16, 16, 0.7) !important;
+}
+
+.shaka-play-button[icon='play'] {
+    background-image: url('../assets/svg/play.svg') !important;
+}
+
+.shaka-play-button[icon='pause'] {
+    background-image: url('../assets/svg/stop.svg');
+}
