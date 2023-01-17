@@ -1,10 +1,9 @@
-.slider-wrapper {
-    :hover {
-        .list-arrow {
-            svg {
-                display: block;
-            }
-        }
+.slider-wrapper:hover {
+    .list-arrow > svg {
+        opacity: 1;
+    }
+    .bullet-wrapper {
+        opacity: 1;
     }
 }
 
@@ -35,12 +34,17 @@
     top: 0px;
     z-index: 1;
     cursor: pointer;
-    transition: opacity 400ms;
+    transition: opacity 300ms;
     opacity: 0.9;
 
     svg {
         fill: var(--color-neutral-100);
-        display: none;
+        opacity: 0;
+        transition: all 300ms ease-in;
+    }
+
+    svg:hover {
+        scale: 1.2;
     }
 }
 
@@ -76,6 +80,18 @@
             var(--color-black) 90%
         );
     }
+}
+
+.bullet-wrapper {
+    min-width: 50px;
+    min-height: 8px;
+    position: absolute;
+    right: 0px;
+    bottom: 100%;
+    display: flex;
+    margin-bottom: 24px;
+    opacity: 0;
+    transition: opacity 0.25s ease-out 0s;
 }
 
 @media (min-width: 450px) {

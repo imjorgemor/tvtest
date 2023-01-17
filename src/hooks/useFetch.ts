@@ -24,5 +24,5 @@ export const useFetch = <T>(method: () => any, lazyFetch: boolean) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lazyFetch]);
 
-    return { state, response };
+    return { state, response, setState };
 };

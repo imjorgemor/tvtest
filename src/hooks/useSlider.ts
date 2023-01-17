@@ -4,7 +4,7 @@ import { numberFilmsPerSection } from '../definitions/filmSections';
 
 export const useSlider = (filmsByCategory?: ListItemModel[]) => {
     const totalFilms = numberFilmsPerSection;
-    
+
     const sliderRef = useRef<HTMLDivElement>(null);
     const [totalSlides, setTotalSlides] = useState(2);
     const [currentSlidePosition, setCurrentSlidePosition] = useState(1);
@@ -25,9 +25,7 @@ export const useSlider = (filmsByCategory?: ListItemModel[]) => {
 
     useEffect(() => {
         handleWindowSize();
-    }, []);
 
-    useEffect(() => {
         window.addEventListener('resize', handleWindowSize);
         return () => {
             window.removeEventListener('resize', handleWindowSize);
@@ -39,23 +37,20 @@ export const useSlider = (filmsByCategory?: ListItemModel[]) => {
         const distance = sliderRef.current ? sliderRef.current.getBoundingClientRect().width : 0;
         if (sliderRef.current) {
             if (currentSlidePosition < totalSlides - 1) {
-                setCurrentSlidePosition(currentSlidePosition + 1);
                 sliderRef.current.style.transform = `translateX(-${distance * currentSlidePosition}px)`;
+                setCurrentSlidePosition(prev => prev + 1);
             } else if (currentSlidePosition - totalSlides <= 1) {
-                setCurrentSlidePosition(Math.ceil(totalSlides));
                 sliderRef.current.style.transform = `translateX(-${distance * (totalSlides - 1)}px)`;
-                console.log("touch");
-            } 
+                setCurrentSlidePosition(Math.ceil(totalSlides));
+            }
         }
     };
 
     const handleClickLeft = () => {
         const distance = sliderRef.current ? sliderRef.current.getBoundingClientRect().width : 0;
-        if (currentSlidePosition > 1) {
-            setCurrentSlidePosition(currentSlidePosition - 1);
-            if (sliderRef.current) {
-                sliderRef.current.style.transform = `translateX(-${distance * (currentSlidePosition - 2)}px)`;
-            }
+        if (currentSlidePosition > 1 && sliderRef.current) {
+            sliderRef.current.style.transform = `translateX(-${distance * (currentSlidePosition - 2)}px)`;
+            setCurrentSlidePosition(prev => prev - 1);  
         }
     };
 

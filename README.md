@@ -1,6 +1,6 @@
 # RAKUTEN TV TEST
 
-UPDATE NOTE: React fast refresh configuration improved with better performance
+UPDATE NOTE: React fast refresh configuration improved with better performance and reduced bundle size. Improved ui in slider component with the touch position indicator.
 
 * [About The Project](#about)
 * [Built With](#built-with)
@@ -53,8 +53,11 @@ Launches the test runner in the interactive watch mode.\
 
 ### `npm run build`
 
-Builds the app for production to the `dist` folder.\
+Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+### Run tv application in a local server
+`npx servor build`
 
 ## Features And Test Requirements
 
@@ -118,11 +121,10 @@ For the purpose of this test I have used bitmovin library as it is really fast t
 
 ## Roadmap
 
-- [ ] Make the horizontal slide scroll infinite like the rakuten website.
-- [ ] Add the slider dots to inform the user the total of scrolls and the current position.
+- [x] Reduze or minimize bundle size for better performance
+- [x] Add the slider dots to inform the user the total of scrolls and the current position.
 - [ ] Migrate Bitmovin library to Shaka library(the one used by rakuten) using a personalized UI.
-- [ ] Add lazy loading on view components.
-- [ ] Reduze or minimize bundle size for better performance
+- [ ] Make the horizontal slide scroll infinite like the rakuten website.
 - [ ] Add integration tests to redux
 - [ ] Add end2end test with playwright
 - [ ] Add preview card in the home page when mouse-over each film
