@@ -8,8 +8,6 @@ export const useMoviePlayer = () => {
     const [mainPlayer, setMainPlayer] = useState({});
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    console.log(mainPlayer);
-
     
     const playerSource = {
         dash: 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd',

@@ -4,7 +4,7 @@ import { Meta } from '../definitions/meta';
 type FetchState<T> = null | T | undefined;
 type Response = Meta;
 
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useFetch = <T>(method: () => any, lazyFetch: boolean) => {
     const [state, setState] = useState<FetchState<T>>(null);
     //handle type of api response

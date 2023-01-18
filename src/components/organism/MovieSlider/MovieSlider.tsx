@@ -1,4 +1,5 @@
 import { Suspense, lazy, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { ArrowLeft, ArrowRight } from '../../../assets/icons';
 import { listService } from '../../../repository/services/listService';
@@ -8,7 +9,6 @@ import { Meta } from '../../../definitions';
 import { MovieListSkeleton } from '../../molecules/MovieListSkeleton/MovieListSkeleton';
 import { setErrorsList } from '../../../store/home';
 import { SectionTitle, TitleSkeleton } from '../../atoms';
-import { useNavigate } from 'react-router-dom';
 import { Bullet } from '../../atoms/bullet';
 const MovieList = lazy(() => import("../../molecules/MovieList/MovieList"));
 
@@ -38,7 +38,6 @@ export const MovieSlider = ({ section }: Props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [response]);
 
-
     if (response === Meta.ERROR) return <></>;
 
     return (
@@ -58,10 +57,7 @@ export const MovieSlider = ({ section }: Props) => {
                             bulletsToRender.map(( index) => <Bullet
                                 key={index}
                                 isActive={index+1 === currentSlidePosition} />)
-
                         }
-
-
                     </div>
                     <div
                         className='list-arrow list-arrow--left'

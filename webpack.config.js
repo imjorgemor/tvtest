@@ -111,14 +111,14 @@ module.exports = (env, argv) => {
         },
         optimization: {
             splitChunks: {
-              cacheGroups: {
-                reactVendor: {
-                  test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom|react-redux|bitmovin-player|bitmovin-player-ui)[\\/]/,
-                  name: 'vendor-react',
-                  chunks: 'all',
+                cacheGroups: {
+                    reactVendor: {
+                        test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom|react-redux|shaka-player|shaka-player-react)[\\/]/,
+                        name: 'vendor-react',
+                        chunks: 'all',
+                    },
                 },
-              },
             },
-          },
+        },
     };
 };

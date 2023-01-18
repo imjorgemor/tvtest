@@ -1,10 +1,11 @@
 import { MovieCardItem } from '../../atoms';
 
 export const MovieListSkeleton = () => {
+    const skeletonsToRender = Array.from(Array(9).keys());
     return (
         <>
             {
-                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((id) => (
+                skeletonsToRender.map((id) => (
                     <MovieCardItem
                         key={id}
                     />

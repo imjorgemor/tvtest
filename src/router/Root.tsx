@@ -5,11 +5,9 @@ import ScrollTopRouter from './ScrollTopRouter';
 export const Root = () => {
 
     return (
-        <>
-            <ScrollTopRouter>
-                <Navbar />
-                <Outlet />
-            </ScrollTopRouter>
-        </>
+        <ScrollTopRouter>
+            <Navbar />
+            <Outlet />
+        </ScrollTopRouter>
     );
 };

@@ -1,10 +1,12 @@
-import { MoviePlayer } from '../components/organism';
+import { lazy, Suspense } from 'react';
+const MoviePlayer = lazy(() => import('../components/organism/MoviePlayer/MoviePlayer'));
+
 
 export const StreamPage = () => {
   return (
-    <div>
+    <Suspense>
         <MoviePlayer />
-    </div>
+    </Suspense>
   );
 };
 
