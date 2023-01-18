@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ReactRefreshTypeScript = require('react-refresh-typescript');
+const FontPreloadPlugin = require("webpack-font-preload-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -85,6 +86,10 @@ module.exports = (env, argv) => {
         plugins: [
             isDevelopment && new ReactRefreshWebpackPlugin(),
             new ForkTsCheckerWebpackPlugin(),
+            new FontPreloadPlugin({
+                loadType: "preload"
+
+            }),
             new HtmlWebpackPlugin({
                 template: './public/index.html',
                 favicon: "./public/favicon.ico",
