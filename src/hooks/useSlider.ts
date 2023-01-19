@@ -12,15 +12,10 @@ export const useSlider = (filmsByCategory?: ListItemModel[]) => {
 
     // handle window resize and sets items in row
     const handleWindowSize = () => {
-        if (window.innerWidth >= 1100) {
-            setTotalSlides(totalFilms / 7);
-        } else if (window.innerWidth >= 800) {
-            setTotalSlides(totalFilms / 6);
-        } else if (window.innerWidth >= 450) {
-            setTotalSlides(totalFilms / 4);
-        } else if (window.innerWidth < 450) {
-            setTotalSlides(totalFilms / 3);
-        }
+        if (window.innerWidth >= 1100) setTotalSlides(totalFilms / 7);
+        if (window.innerWidth >= 800) setTotalSlides(totalFilms / 6);
+        if (window.innerWidth >= 450) setTotalSlides(totalFilms / 4);
+        if (window.innerWidth < 450) setTotalSlides(totalFilms / 3);
     };
 
     useEffect(() => {
@@ -50,7 +45,7 @@ export const useSlider = (filmsByCategory?: ListItemModel[]) => {
         const distance = sliderRef.current ? sliderRef.current.getBoundingClientRect().width : 0;
         if (currentSlidePosition > 1 && sliderRef.current) {
             sliderRef.current.style.transform = `translateX(-${distance * (currentSlidePosition - 2)}px)`;
-            setCurrentSlidePosition(prev => prev - 1);  
+            setCurrentSlidePosition(prev => prev - 1);
         }
     };
 
