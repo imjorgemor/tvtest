@@ -21,12 +21,14 @@ The purpose of this project is develop a React application that simulates the [R
 ## Built With
 
 This project has built with:
+* node v.16.18.0
 * Webpack v5
 * React v18
 * Redux Toolkit
-* Bitmovin player
+* Shaka player
 * React Router Dom v6.4
 * Typescript
+
 
 ## Getting Started
 

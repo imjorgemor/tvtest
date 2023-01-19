@@ -8,7 +8,7 @@ const FontPreloadPlugin = require("webpack-font-preload-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = (env, argv) => {
+module.exports = () => {
 
     return {
         mode: isDevelopment ? 'development' : 'production',
